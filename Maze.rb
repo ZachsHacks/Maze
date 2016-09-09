@@ -8,7 +8,9 @@ class Maze
 	end
 
 	def load(row , col)
-		@maze = "111111111100010001111010101100010101101110101100000101111011101100000101111111111"
+		puts "Please enter a maze: (For example: \"111111111100010001111010101100010101101110101100000101111011101100000101111111111\")"
+		print "> "
+		@maze = $stdin.gets
 		@maze = turn_into_maze(@maze, row)
 	end
 
@@ -78,8 +80,8 @@ class Maze
 
 	def trace(beg_x, beg_y, end_x, end_y)
 		if solve(beg_x, beg_y, end_x, end_y)
-			print "There is a path: "
-			puts @path.to_s
+			puts "There is a path from [#{beg_x}, #{beg_y}] to [#{end_x}, #{end_y}]."
+			puts "Here it is: #{@path.to_s}"
 		else puts "There is no path from [#{beg_x}, #{beg_y}] to [#{end_x}, #{end_y}]."
 		end
 	end
